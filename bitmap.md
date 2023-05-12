@@ -22,13 +22,11 @@ At this point I tried the XOR by ‘FF’ hint found earlier using CyberChef:
 
 ![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/caf39f8c-96e1-4bdf-a81f-7379ad59e788)
 
-This gave me something, I was on the right track, but didn’t quite make sense, and stumped me for ages, the letters weren’t quite in the right order. But then finally B’=WOLSIF made me think of ‘blowfish’ 
+This gave me something, I was on the right track, but didn’t quite make sense, and stumped me for ages, the letters weren’t quite in the right order. But then finally B’=WOLSIF made me think of ‘blowfish’ with B’= in reverse, WOL in reverse and SIF in reverse so should read =’BLOWFIS
 
-bdd8c2 a8b0b3 acb6b9 when XORed is: B'=WOLSIF
+Basically, each pixel when converted to hex then also needed converting from little endian to big endian, so for example acb6b9 should be b9b6ac.
 
-bdd8c2 a8b0b3 b9b6ac when XORed is B'=WOLFIS, so cb6b9 should be b9b6ac, basically each pixel when converted to hex then also needed converting from little endian to big endian.
-
-I cheated a bit here, and instead just swapped (r, g, b) with (b, g, r) in rgb_to_hex:
+I cheated a bit here with the code, and just swapped (r, g, b) with (b, g, r) in rgb_to_hex:
 
 ![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/5597ff6d-5177-45b5-b4be-a335ca034e3a)
 
@@ -38,7 +36,7 @@ and in CyberChef now get:
 
 ![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/a274f1d2-93f1-41da-9e87-825c79d9dd2f)
 
-which is another hint that we need to Xor by FF, which gives:
+which is another hint that we need to Xor by FF, and when Xor’ed gives us:
 
 ![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/c16d5ba1-4e40-4b7f-b10b-e83eec3f9659)
 
@@ -46,6 +44,6 @@ This now gives us the info we need to Xor and decrypt the non-ASCII values betwe
 
 ![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/57df10f3-1787-49d5-9e6b-997e0b2349b6)
 
-![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/5008d57d-58b8-42d4-8541-4ae351241db1)
+![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/4d48463d-df26-4a3d-9d6c-21b2a3c0f6c3)
 
 ![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/b841b9dd-2f12-40de-8173-386a503ece4b)
