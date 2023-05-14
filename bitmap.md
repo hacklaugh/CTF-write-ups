@@ -7,7 +7,8 @@ I first opened the bitmap.bmp with a hex editor and notes the phrase XOR BY ‘F
 
 Next, use Python’s PIL library and Counter to analyse the pixels in the bitmap:
 
-![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/e85f9f86-4fe0-46e2-929e-3a01920b02d4)
+![image](https://github.com/hacklaugh/CTF-write-ups/assets/126184849/5baa338d-5a52-4c9d-bf93-da8384a9260a)
+
 
 This showed lots of pixels with R=G=B such as (159,159,159) in large numbers, but interestingly also found a number of pixels which were unique and didn’t follow this pattern. I focused on the unique pixels and extracted the pixels where R,G,B weren’t the same. I then converted these to hex with:
 
